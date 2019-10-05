@@ -1,0 +1,37 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Game</title>
+
+</head>
+
+<body>
+	<h1>Rock, paper, or scissors?</h1>
+	<div class="answer">
+		<h2>User's Choice:</h2>
+		<div>
+				<input type="radio" id="rock" name="game" value="rock" onchange="game()">
+				<label>rock</label>
+			</div>
+		
+			<div>
+				<input type="radio" id="paper" name="game" value="paper"  onchange="game()">
+				<label>paper</label>
+			</div>
+		
+			<div>
+				<input type="radio" id="scissors" name="game" value="scissors"  onchange="game()">
+				<label>scissors</label>
+			</div>
+
+			<h2 id="comp_output"></h2>
+		<h1 id="output"></h1>
+	</div>
+
+
+	<script src="game.js"></script>
+</body>
+
+</html>
