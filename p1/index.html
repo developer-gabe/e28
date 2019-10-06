@@ -11,12 +11,41 @@
   </head>
   <body>
     <div id="root" v-cloak>
-			<h1 id="heading">Rocks, Paper, or Scissors?</h1>
-      <div class="grid">
-        <button class="card" id="rock" @click="activeChoice = 'rock'; playerChoice = 'rock'" :class="{isActive: activeChoice === 'rock' }">rock</button>
-        <button class="card" id="paper" @click="activeChoice = 'paper'; playerChoice = 'paper'" :class="{isActive: activeChoice === 'paper' }">paper</button>
-        <button class="card" id="scissors" @click="activeChoice = 'scissors'; playerChoice = 'scissors'" :class="{isActive: activeChoice === 'scissors' }">scissors</button>
+      <h1 id="heading">Rocks, Paper, or Scissors?</h1>
+      <div id="winner-div" v-if="winner !== null">
+        <h1>Winner: {{ winner }}</h1>
+        <h3>Player's Choice: {{ playerChoice }}</h3>
+        <h3>Computer's Choice: {{ computerChoice }}</h3>
       </div>
-		</div>
+      <div class="grid">
+        <button
+          class="card"
+          id="rock"
+          @click="activeChoice = 'rock'; playerChoice = 'rock';"
+          :class="{isActive: activeChoice === 'rock' }"
+        >
+          rock
+        </button>
+        <button
+          class="card"
+          id="paper"
+          @click="activeChoice = 'paper'; playerChoice = 'paper'"
+          :class="{isActive: activeChoice === 'paper' }"
+        >
+          paper
+        </button>
+        <button
+          class="card"
+          id="scissors"
+          @click="activeChoice = 'scissors'; playerChoice = 'scissors'"
+          :class="{isActive: activeChoice === 'scissors' }"
+        >
+          scissors
+        </button>
+        <div></div>
+        <button class="card" id="submit" @click="mixit">Submit</button>
+        <div></div>
+      </div>
+    </div>
   </body>
 </html>

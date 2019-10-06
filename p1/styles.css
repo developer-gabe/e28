@@ -12,7 +12,9 @@
 .grid {
 	margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	row-gap: 2rem;
   margin: auto;
   padding: 2rem;
 }
@@ -42,6 +44,17 @@ button {
 	outline: none;
 }
 
+h1, h3 {
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	color: rgb(0, 81, 124);
+}
+
+#winner-div {
+	opacity: 0;
+	animation: intro 1s ease-in-out .3s 1 forwards;
+}
+
 #rock {
 	opacity: 0;
 	background: #e9724c;
@@ -61,6 +74,11 @@ button {
 	background: #ffc857;
 	border: 3px solid #da950b;
 	animation: intro 0.5s ease-in-out .9s 1 forwards;
+}
+
+#submit {
+	background: #0075B2;
+	border: 3px solid rgb(3, 71, 107);
 }
 
 #heading {
