@@ -104,12 +104,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {
-      itemID: null,
-      itemName: null
-    };
+    return {};
   }
 });
 
@@ -598,21 +610,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "button",
-    {
-      staticClass: "card",
-      class: { isActive: _vm.activeChoice === "{{itemID}}" },
-      attrs: { id: _vm.itemID },
-      on: {
-        click: function($event) {
-          _vm.activeChoice = "{{itemID}}"
-          _vm.playerChoice = "{{itemID}}"
+  return _c("div", [
+    _c(
+      "button",
+      {
+        staticClass: "card",
+        class: { isActive: _vm.activeChoice === "rock" },
+        attrs: { id: "rock" },
+        on: {
+          click: function($event) {
+            _vm.$root.activeChoice = "rock"
+            _vm.$root.playerChoice = "rock"
+          }
         }
-      }
-    },
-    [_vm._v(_vm._s(_vm.itemName))]
-  )
+      },
+      [_vm._v("Rock")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "card",
+        class: { isActive: _vm.activeChoice === "paper" },
+        attrs: { id: "paper" },
+        on: {
+          click: function($event) {
+            _vm.$root.activeChoice = "paper"
+            _vm.$root.playerChoice = "paper"
+          }
+        }
+      },
+      [_vm._v("Paper")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "card",
+        class: { isActive: _vm.activeChoice === "scissors" },
+        attrs: { id: "scissors" },
+        on: {
+          click: function($event) {
+            _vm.$root.activeChoice = "scissors"
+            _vm.$root.playerChoice = "scissors"
+          }
+        }
+      },
+      [_vm._v("Scissors")]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
