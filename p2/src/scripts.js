@@ -1,6 +1,12 @@
+import Vue from 'vue';
+import Game from './components/Game.vue';
+
 let app = new Vue({
-  el: "#root",
-  data: {
+	el: "#root",
+	components: {
+		'game' : Game
+	},
+	data: {
     playerChoice: null,
     activeChoice: null,
     computerChoice: null,
@@ -35,9 +41,6 @@ let app = new Vue({
             this.winner = "scissors";
           }
         }
-        if (b === null) {
-          this.winner = "Error. Player must choose an option.";
-        }
       }
     },
     compChoice: function() {
@@ -54,4 +57,5 @@ let app = new Vue({
   beforeMount() {
     this.compChoice();
   }
-});
+
+ });

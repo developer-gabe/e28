@@ -2,10 +2,6 @@
   display: none;
 }
 
-body {
-	background: #00db89;
-}
-
 #root {
   opacity: 0;
   transition: all ease-in-out 1s;
@@ -52,26 +48,12 @@ h1,
 h3 {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  color: #fff
+  color: rgb(0, 81, 124);
 }
 
 #winner-div {
   opacity: 0;
-	animation: intro 1s ease-in-out 0.3s 1 forwards;
-
-  margin: auto;
-  border-radius: 15px;
-  transition: all ease-in-out 0.2s;
-  padding: 3rem;
-
-  font-weight: 800;
-  text-align: center;
-  text-transform: uppercase;
-	background: #00517c;
-	border: 3px solid #012f47;
-  font-size: 1.2rem;
-  font-family: Arial, Helvetica, sans-serif;
-  box-shadow: 0 1px 3px #0000001f, 0 1px 2px #0000003d;
+  animation: intro 1s ease-in-out 0.3s 1 forwards;
 }
 
 #rock {
@@ -98,10 +80,6 @@ h3 {
 #submit {
   background: #0075b2;
   border: 3px solid rgb(3, 71, 107);
-}
-
-#submit:hover {
-	text-decoration: underline;
 }
 
 #heading {
