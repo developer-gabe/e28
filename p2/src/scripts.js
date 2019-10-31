@@ -8,9 +8,8 @@ let app = new Vue({
 	},
 	data: {
     playerChoice: null,
-    activeChoice: null,
     computerChoice: null,
-    winner: null
+		winner: null
   },
   methods: {
     mixit: function() {

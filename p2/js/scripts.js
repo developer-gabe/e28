@@ -118,8 +118,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      rockActive: null,
+      scissorsActive: null,
+      paperActive: null
+    };
+  },
+  methods: {
+    changeActive: function changeActive() {
+      $root.active = true;
+    }
+  }
+});
 
 /***/ }),
 
@@ -135,7 +147,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n#rock[data-v-6ca3af22] {\n  opacity: 0;\n  background: #e9724c;\n  border: 3px solid #c96341;\n  animation: intro 0.5s ease-in-out 0.3s 1 forwards;\n}\n#paper[data-v-6ca3af22] {\n  opacity: 0;\n  background: #0fa3b1;\n  border: 3px solid #0a7781;\n  animation: intro 0.5s ease-in-out 0.6s 1 forwards;\n}\n#scissors[data-v-6ca3af22] {\n  opacity: 0;\n  background: #ffc857;\n  border: 3px solid #da950b;\n  animation: intro 0.5s ease-in-out 0.9s 1 forwards;\n}\n.isActive[data-v-6ca3af22] {\n  transform: scale(1.08);\n  box-shadow: 0 14px 28px #00000040, 0 10px 10px #00000038;\n}\n", ""]);
+exports.push([module.i, "\n#rock[data-v-6ca3af22] {\n  opacity: 0;\n  color: #fff;\n\tborder: 3px solid #cb42cf;\n\tbackground: #fff1;\n  animation: intro 0.5s ease-in-out 0.3s 1 forwards;\n}\n#paper[data-v-6ca3af22] {\n  opacity: 0;\n  color: #fff;\n\tborder: 3px solid #fc4a1a;\n\tbackground: #fff1;\n  animation: intro 0.5s ease-in-out 0.6s 1 forwards;\n}\n#scissors[data-v-6ca3af22] {\n  opacity: 0;\n  color: #fff;\n\tborder: 3px solid #da950b;\n\tbackground: #fff1;\n  animation: intro 0.5s ease-in-out 0.9s 1 forwards;\n}\n.active[data-v-6ca3af22] {\n  transform: scale(1.08);\n  box-shadow: 0 14px 28px #00000040, 0 10px 10px #00000038;\n}\n", ""]);
 
 // exports
 
@@ -1256,12 +1268,14 @@ var render = function() {
       "button",
       {
         staticClass: "card",
-        class: { isActive: _vm.activeChoice === "rock" },
+        class: { active: _vm.rockActive },
         attrs: { id: "rock" },
         on: {
           click: function($event) {
-            _vm.$root.activeChoice = "rock"
             _vm.$root.playerChoice = "rock"
+            _vm.rockActive = true
+            _vm.paperActive = false
+            _vm.scissorsActive = false
           }
         }
       },
@@ -1272,12 +1286,14 @@ var render = function() {
       "button",
       {
         staticClass: "card",
-        class: { isActive: _vm.activeChoice === "paper" },
+        class: { active: _vm.paperActive },
         attrs: { id: "paper" },
         on: {
           click: function($event) {
-            _vm.$root.activeChoice = "paper"
             _vm.$root.playerChoice = "paper"
+            _vm.rockActive = false
+            _vm.paperActive = true
+            _vm.scissorsActive = false
           }
         }
       },
@@ -1288,12 +1304,15 @@ var render = function() {
       "button",
       {
         staticClass: "card",
-        class: { isActive: _vm.activeChoice === "scissors" },
+        class: { active: _vm.scissorsActive },
         attrs: { id: "scissors" },
         on: {
           click: function($event) {
-            _vm.$root.activeChoice = "scissors"
             _vm.$root.playerChoice = "scissors"
+            ;("changeActive")
+            _vm.rockActive = false
+            _vm.paperActive = false
+            _vm.scissorsActive = true
           }
         }
       },
@@ -13415,14 +13434,15 @@ module.exports = g;
 /*!*********************************!*\
   !*** ./src/components/Game.vue ***!
   \*********************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Game_vue_vue_type_template_id_6ca3af22_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Game.vue?vue&type=template&id=6ca3af22&scoped=true& */ "./src/components/Game.vue?vue&type=template&id=6ca3af22&scoped=true&");
 /* harmony import */ var _Game_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Game.vue?vue&type=script&lang=js& */ "./src/components/Game.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Game_vue_vue_type_style_index_0_id_6ca3af22_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Game.vue?vue&type=style&index=0&id=6ca3af22&scoped=true&lang=css& */ "./src/components/Game.vue?vue&type=style&index=0&id=6ca3af22&scoped=true&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Game_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Game_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _Game_vue_vue_type_style_index_0_id_6ca3af22_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Game.vue?vue&type=style&index=0&id=6ca3af22&scoped=true&lang=css& */ "./src/components/Game.vue?vue&type=style&index=0&id=6ca3af22&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -13454,7 +13474,7 @@ component.options.__file = "src/components/Game.vue"
 /*!**********************************************************!*\
   !*** ./src/components/Game.vue?vue&type=script&lang=js& ***!
   \**********************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13519,7 +13539,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   },
   data: {
     playerChoice: null,
-    activeChoice: null,
     computerChoice: null,
     winner: null
   },
