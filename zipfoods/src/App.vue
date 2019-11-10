@@ -11,13 +11,19 @@
 <script>
 import ShowProducts from './components/ShowProducts.vue'
 import ShowFeatured from './components/ShowFeatured.vue'
+import {products} from './products.js'
 
 export default {
   name: 'app',
   components: {
 		ShowProducts,
 		ShowFeatured
-  }
+	},
+	data: function() {
+	return {
+		products: products
+	}
+	}
 }
 </script>
 
