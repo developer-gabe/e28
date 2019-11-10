@@ -25,9 +25,9 @@ export default {
     return {
 			category: "snacks",
 			products: products
-    };
+    }
   }
-};
+}
 </script>
 
 <style scoped>
