@@ -1,41 +1,33 @@
 <template>
   <div id="app">
     <img id="logo" alt="Zipfoods logo" src="./assets/images/zipfoods-logo.png">
-		<nav>
+	<nav>
     <ul>
         <li v-for='link in links' :key='link'>
-            <a href='#' @click='page = link'>{{ link }}</a>
+            <router-link :to='paths[link]' exact>{{ link }}</router-link>
         </li>
     </ul>
 </nav>
-
-			<component :is='linkComponents[page]'></component>
+		<router-view></router-view>
   </div>
 </template>
 
 <script>
-import ShowProducts from './components/ShowProducts.vue'
-import ShowHome from './components/ShowHome.vue'
-import ShowCategories from './components/ShowCategories.vue'
 import {products} from './products.js'
 
 export default {
   name: 'app',
   components: {
-		ShowProducts,
-		ShowHome,
-		ShowCategories
 	},
 	data: function() {
 	return {
-		page: 'home',
+		products: products,
 		links: ['home', 'products', 'categories'],
-		linkComponents: {
-			home: 'ShowHome',
-			products: 'ShowProducts',
-			categories: 'ShowCategories'
-		},
-		products: products
+		paths: {
+    home: '/',
+    products: '/products',
+    categories: '/categories'
+}
 	}
 	}
 }
