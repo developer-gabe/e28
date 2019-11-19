@@ -1,19 +1,20 @@
 <template>
   <div id="app">
-		<Home> </Home>
-		<router-view></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Home from './components/Home.vue'
-
 export default {
-	name: 'app',
-	components: Home
-	}
+  name: "app",
+  data: function() {
+    return {
+			selected: 1
+    };
+  }
+};
 </script>
 
-<style lang='scss'>
-@import './assets/css/main.scss';
+<style lang="scss">
+@import "./assets/css/main.scss";
 </style>

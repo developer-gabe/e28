@@ -3,7 +3,7 @@
     <ul id="blog-list">
       <li v-for="post in posts" v-bind:key="post.id" class="blog-list__item">
 			<section>
-			<a :href="post.link" > <h1 class="blog-list__title">{{post.title}} </h1></a>
+			<router-link :to='post.link'> <h1 class="blog-list__title">{{post.title}}</h1></router-link>
 			<p class="">{{post.exceprt}} </p>
 			<p>{{post.date}}</p>
 			</section>
@@ -22,7 +22,7 @@ export default {
 	},
   data: function() {
     return {
-			posts: posts
+			posts: posts,
     };
   }
 };
