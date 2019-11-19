@@ -1,6 +1,8 @@
 <template>
 <div class="blog">
+	<section v-if="sfc = true">
 	<SFC />
+	</section>
 	<CSSGrid />
 </div>
 </template>
@@ -14,7 +16,9 @@ export default {
 	components:{SFC, CSSGrid},
 	data: function() {
 		return {
-			article: null
+			article: null,
+			sfc: false,
+			cssgrid: false
 		}
 	}
 }
