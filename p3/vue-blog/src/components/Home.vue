@@ -14,6 +14,8 @@
       :page-size="3"
 			:start-page="null">
     </BlogPostList>
+
+
   </div>
 </template>
 <script>

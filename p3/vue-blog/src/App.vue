@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-		<Home> </Home>
+		<router-view></router-view>
   </div>
 </template>
 
 <script>
-import {site} from './site.js'
-import Home from './components/Home.vue'
+import {postlist} from './data/PostList.js'
+
 
 export default {
 	name: 'app',
 	components: {
-		'Home': Home
 	},
 	data: function() {
 	return {
-		site: site,
+		postlist: postlist
+
 }
 	}
 	}
