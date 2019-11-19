@@ -1,15 +1,16 @@
 export const posts = [
-    {
-      "id": "maud-sparrow",
-      "date": "April 21, 2018",
-      "title": "Maud Sparrow and the Four Wicked Horses",
-      "description": "Once upon a time there was a generous girl called Maud Sparrow. She was on the way to see her Albert Connor, when she decided to take a short cut through Spittleton Woods..."
-		},
-		{
-      "id": "maud-sparrow2",
-      "date": "April 21, 2018",
-      "title": "Maud Sparrow and the Four Wicked Horses",
-      "description": "Once upon a time there was a generous girl called Maud Sparrow. She was on the way to see her Albert Connor, when she decided to take a short cut through Spittleton Woods..."
-    }
-  ]
-
+  {
+    id: 1,
+		title: "A Quick Introduction to CSS Grid",
+		link: "/intro-to-css-grid",
+    date: "2019-02-10 20:47:18",
+    exceprt: "Overview on Grid Containers, Grid Items, Columns, Rows, and more."
+  },
+  {
+    id: 2,
+		title: "Single File Components",
+		link: "/single-file-components",
+    date: "2019-10-20 12:59:18",
+    exceprt: "Exploring single file components in the Vue framework"
+  }
+]

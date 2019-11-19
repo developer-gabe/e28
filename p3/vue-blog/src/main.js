@@ -1,20 +1,24 @@
 import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
-import Home from "./components/Home.vue";
-import TestPost from "./posts/TestPost.md";
+import Home from "@/components/Home.vue";
+import SFC from "@/posts/SFC.md";
+import CSSGrid from "@/posts/CSS-grid.md";
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
 
 export const routes = [
   { path: "/", component: Home },
-  { path: "/test", component: TestPost }
+	{ path: "/single-file-components", component: SFC },
+	{ path: "/intro-to-css-grid", component: CSSGrid },
+	{path: "/index.html", redirect: "/"}
 ];
 
 const router = new VueRouter({
   routes: routes,
-  mode: "history"
+	mode: "history",
+	base:'/'
 });
 
 new Vue({
