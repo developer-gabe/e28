@@ -2,15 +2,26 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
 import Home from "@/components/Home.vue";
+import SFC from "@/posts/SFC.md"
+import CSSGrid from "@/posts/CSS-grid.md"
+// import posts from './data/PostList.js'
 import BlogPost from '@/components/BlogPost.vue'
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
 
 export const routes = [
-  { path: "/", component: Home },
-	{ path: "/single-file-components", component: BlogPost },
-	{ path: "/intro-to-css-grid", component: BlogPost },
-	{path: "/index.html", redirect: "/"}
+	{ path: "/", component: Home },
+	{path: "/index.html", redirect: "/"},
+	{ path: "/single-file-components", component: BlogPost, children: [
+		{
+			path: '/single-file-components',
+			component: SFC
+		}]},
+	{ path: "/intro-to-css-grid", component: BlogPost,  children: [
+		{
+			path: '/intro-to-css-grid',
+			component: CSSGrid
+		}]}
 ];
 
 const router = new VueRouter({
