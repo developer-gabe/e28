@@ -11,6 +11,17 @@ export default {
     return {
 			selected: 1
     };
+	},
+	computed: {
+		readCount: function() {
+			return this.$store.state.blogViewCount
+		},
+		currentPost: function () {
+			return this.$store.state.currentPost
+		},
+    currentRouteName() {
+        return this.$route.path;
+    }
 	}
 };
 </script>

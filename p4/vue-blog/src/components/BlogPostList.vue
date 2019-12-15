@@ -24,7 +24,7 @@ export default {
     return {
 			posts: null,
     };
-  },
+	},
 	mounted() {
 		axios.get('https://my-json-server.typicode.com/ghsousa/e28-api/posts').then(response => {
 			this.posts = response.data

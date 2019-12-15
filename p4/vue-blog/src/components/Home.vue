@@ -14,6 +14,7 @@
     </div>
 
     <BlogPostList> </BlogPostList>
+
   </div>
 </template>
 <script>
@@ -22,14 +23,15 @@ import BlogPostList from "./BlogPostList.vue";
 export default {
   name: "Home",
   components: {
-    BlogPostList: BlogPostList
+		BlogPostList: BlogPostList
   },
   data: function() {
     return {
-      BlogPostList
+			BlogPostList,
     };
   }
 };
+
 </script>
 
 <style scoped>
