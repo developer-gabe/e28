@@ -14,16 +14,19 @@
     </div>
 
     <BlogPostList> </BlogPostList>
+		<CommentSection> </CommentSection>
 
   </div>
 </template>
 <script>
 import BlogPostList from "./BlogPostList.vue";
+import CommentSection from "./CommentSection.vue";
 
 export default {
   name: "Home",
   components: {
-		BlogPostList: BlogPostList
+		BlogPostList: BlogPostList,
+		CommentSection: CommentSection
   },
   data: function() {
     return {

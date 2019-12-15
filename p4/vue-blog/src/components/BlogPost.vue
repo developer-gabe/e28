@@ -3,19 +3,16 @@
     <router-link to="/" tag="a" class="return">Return Home</router-link>
 		<ReadCount> </ReadCount>
     <router-view></router-view>
-    <CommentSection> </CommentSection>
     <router-link to="/" tag="a" class="return">Return Home</router-link>
   </div>
 </template>
 
 <script>
 import { posts } from "./../data/PostList.js";
-import CommentSection from "./CommentSection.vue";
 import ReadCount from "./ReadCount.vue";
 export default {
   name: "BlogPost",
   components: {
-    CommentSection: CommentSection,
     ReadCount: ReadCount
   },
   data: function() {
