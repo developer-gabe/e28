@@ -6,15 +6,15 @@
         <section class="comment-box">
           <h4>Anonymous:</h4>
           {{ comment.text }}
-          <span v-on:click="comments.splice(index, 1)">remove</span>
+          <span data-test="remove"  v-on:click="comments.splice(index, 1)">remove</span>
         </section>
       </li>
     </ul>
     <div id="commentform">
       <label for="comment"
-        ><input v-model="newComment" type="text" id="comment-box"
+        ><input data-test="comment-box"  v-model="newComment" type="text" id="comment-box"
       /></label>
-      <button v-on:click="addNewComment">Add Comment</button>
+      <button data-test="submit-btn" v-on:click="addNewComment">Add Comment</button>
     </div>
   </div>
 </template>

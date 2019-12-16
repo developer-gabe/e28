@@ -1,6 +1,6 @@
 <template>
   <div class="blog">
-    <router-link to="/" tag="a" class="return">Return Home</router-link>
+    <router-link data-test="return"  to="/" tag="a" class="return">Return Home</router-link>
 		<ReadCount> </ReadCount>
     <router-view></router-view>
     <router-link to="/" tag="a" class="return">Return Home</router-link>

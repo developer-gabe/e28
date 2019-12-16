@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<p id="read">You've viewed {{this.$store.state.blogViewCount}} posts so far </p>
+		<p data-test="read" id="read">You've viewed {{this.$store.state.blogViewCount}} posts so far </p>
 	</div>
 </template>
 
