@@ -1,10 +1,10 @@
 export default [
   {
     id: 1,
-    comment: 'Comment one'
+    text: 'Comment one'
 	},
 	{
     id: 2,
-    comment: 'Comment Two'
+    text: 'Comment Two'
   }
 ]; 

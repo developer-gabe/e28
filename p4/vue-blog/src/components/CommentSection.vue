@@ -2,53 +2,59 @@
   <div id="comment-section">
     <h1>Site Comments</h1>
     <ul class="comments-list">
-      <li v-for="(comment, index) in comments" :key="comment.id">
+      <li v-for="(comment) in comments" :key="comment.id">
         <section class="comment-box">
           <h4>Anonymous:</h4>
           {{ comment.text }}
-          <span data-test="remove"  v-on:click="comments.splice(index, 1)">remove</span>
         </section>
       </li>
     </ul>
     <div id="commentform">
-      <label for="comment"
-        ><input data-test="comment-box"  v-model="newComment" type="text" id="comment-box"
-      /></label>
-      <button data-test="submit-btn" v-on:click="addNewComment">Add Comment</button>
+      <form v-on:submit.prevent="submitToDB">
+        <label for="comment"
+          ><input
+            data-test="comment-box"
+            v-model="newComment"
+            type="text"
+            id="comment-box"
+        /></label>
+        <button data-test="submit-btn" v-on:click="addNewComment">
+          Add Comment
+        </button>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
 import { required, minLength } from "vuelidate/lib/validators";
-
-const comments = [
-  {
-    id: "1",
-    text: "Great Post"
-  },
-  {
-    id: "2",
-    text: "This post is okay, could of been better."
-  }
-];
+// import * as app from './../../App.js'
+const axios = require("axios");
 
 export default {
   name: "commentSection",
   data: function() {
     return {
-      comments: comments,
+      comments: "",
       newComment: ""
     };
   },
   methods: {
     addNewComment: function() {
+      // eslint-disable-next-line no-console
+      console.log(this.comments);
       this.comments.push({
         id: Math.random() * 100,
         text: this.newComment
       });
-    }
-  },
+    },
+    submitToDB: function() {
+      //validate comment info
+      axios
+        .post("https://e28-vueblog.firebaseio.com/comments.json", {
+          text: this.newComment
+        });
+    }},
   validations: {
     product: {
       slug: {
@@ -59,21 +65,27 @@ export default {
         required
       }
     }
+  },
+  mounted() {
+    axios
+      .get("https://e28-vueblog.firebaseio.com/comments.json")
+      .then(response => {
+        this.comments = response.data;
+      });
   }
-};
+}
 </script>
 
 <style scoped>
-
 #comment-section {
-	animation: fadeIn 2s ease-in-out;
+  animation: fadeIn 2s ease-in-out;
 }
 
 #comment-box {
-	display: block;
-	margin: auto;
-	padding: 3rem 0;
-	width: 70%;
+  display: block;
+  margin: auto;
+  padding: 3rem 0;
+  width: 70%;
   height: 100px;
   padding-top: 0;
   padding-left: 1rem;
@@ -90,14 +102,14 @@ button {
   font-size: 2rem;
   padding: 1.5rem;
   margin: 2rem auto;
-	border-radius: 10px;
-	transition: all ease-in-out .2s;
-	margin: 2rem auto;
-	display: block;
+  border-radius: 10px;
+  transition: all ease-in-out 0.2s;
+  margin: 2rem auto;
+  display: block;
 }
 
 button:hover {
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .comment-box {
@@ -105,8 +117,8 @@ button:hover {
   box-shadow: 0 1px 3px #0000001f, 0 1px 2px #0000003d;
   padding: 2rem;
   margin: 1rem auto;
-	animation: zoomIn 1s ease-in-out;
-	width: 70%;
+  animation: zoomIn 1s ease-in-out;
+  width: 70%;
 }
 
 .box p {
@@ -123,7 +135,7 @@ h4 {
 }
 
 h1 {
-	color: #4dc7a0;
+  color: #4dc7a0;
   margin: auto;
   text-align: center;
 }
@@ -155,7 +167,7 @@ span:hover {
 
 @keyframes fadeIn {
   0% {
-		opacity: 0;
+    opacity: 0;
   }
 
   100% {
