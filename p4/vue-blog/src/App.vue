@@ -16,9 +16,6 @@ export default {
 		readCount: function() {
 			return this.$store.state.blogViewCount
 		},
-		currentPost: function () {
-			return this.$store.state.currentPost
-		},
     currentRouteName() {
         return this.$route.path;
     }
