@@ -2,7 +2,7 @@
   <div id="comment-section">
     <h1>Site Comments</h1>
     <ul class="comments-list">
-      <li v-for="(comment) in comments" :key="comment.id">
+      <li v-for="comment in comments" :key="comment.id">
         <section class="comment-box">
           <h4>Anonymous:</h4>
           {{ comment.text }}
@@ -10,7 +10,7 @@
       </li>
     </ul>
     <div id="commentform">
-      <form v-on:submit.prevent="submitToDB">
+      <form v-on:submit.prevent="addNewComment">
         <label for="comment"
           ><input
             data-test="comment-box"
@@ -18,8 +18,8 @@
             type="text"
             id="comment-box"
         /></label>
-        <button data-test="submit-btn" v-on:click="addNewComment">
-          Add Comment
+        <button data-test="submit-btn">
+          Post Comment
         </button>
       </form>
     </div>
@@ -28,7 +28,6 @@
 
 <script>
 import { required, minLength } from "vuelidate/lib/validators";
-// import * as app from './../../App.js'
 const axios = require("axios");
 
 export default {
@@ -41,39 +40,43 @@ export default {
   },
   methods: {
     addNewComment: function() {
-      // eslint-disable-next-line no-console
-      console.log(this.comments);
-      this.comments.push({
-        id: Math.random() * 100,
-        text: this.newComment
-      });
-    },
-    submitToDB: function() {
-      //validate comment info
-      axios
-        .post("https://e28-vueblog.firebaseio.com/comments.json", {
+      this.id = Math.random() * 100;
+      axios({
+        method: "post",
+        url: "https://e28-vueblog.firebaseio.com/comments.json",
+        data: {
+          id: this.id,
           text: this.newComment
-        });
-    }},
+        }
+      }).then(response => {
+        this.comments[response.data.name] = {
+          id: this.id,
+          text: this.newComment
+        };
+        axios
+          .get("https://e28-vueblog.firebaseio.com/comments.json")
+          .then(response => {
+            this.comments = response.data;
+          });
+      });
+    }
+  },
   validations: {
     product: {
       slug: {
         required,
         minLength: minLength(4)
-      },
-      name: {
-        required
       }
     }
   },
-  mounted() {
+  beforeMount() {
     axios
       .get("https://e28-vueblog.firebaseio.com/comments.json")
       .then(response => {
         this.comments = response.data;
       });
   }
-}
+};
 </script>
 
 <style scoped>
