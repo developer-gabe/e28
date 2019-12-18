@@ -49,8 +49,6 @@ export default {
           text: this.newComment
         }
       }).then(response => {
-        // eslint-disable-next-line no-console
-        console.log(response.data);
         this.$set(this.comments, response.data.name, {
           id: this.id,
           text: this.newComment
@@ -71,8 +69,6 @@ export default {
       .get("https://e28-vueblog.firebaseio.com/comments.json")
       .then(response => {
         this.comments = response.data;
-        // eslint-disable-next-line no-console
-        console.log(this.comments);
       });
   }
 };
