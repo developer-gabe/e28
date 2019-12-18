@@ -6,9 +6,6 @@ describe("vueblog", () => {
     cy.contains("h1", "Gabe Sousa");
     cy.get('[data-test="comment-box').type("e2e testing");
     cy.get('[data-test="submit-btn').click();
-    cy.get('[data-test="remove')
-      .last()
-      .click();
   });
 
   it("Visits all blog posts, checks read count", () => {
