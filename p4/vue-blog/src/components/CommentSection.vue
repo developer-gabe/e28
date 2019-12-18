@@ -1,6 +1,12 @@
 <template>
   <div id="comment-section">
     <h1>Site Comments</h1>
+    <div class="form-feedback-error" v-if="!$v.newComment.minLength">
+      Comments must be longer than 3 characters
+    </div>
+    <div class="form-feedback-error" v-if="!$v.newComment.required">
+      Comments can not be blank
+    </div>
     <ul class="comments-list">
       <li v-for="comment in comments" :key="comment.id">
         <section class="comment-box">
@@ -57,11 +63,9 @@ export default {
     }
   },
   validations: {
-    product: {
-      slug: {
-        required,
-        minLength: minLength(4)
-      }
+    newComment: {
+      required,
+      minLength: minLength(3)
     }
   },
   beforeMount() {
@@ -117,6 +121,12 @@ button:hover {
   margin: 1rem auto;
   animation: zoomIn 1s ease-in-out;
   width: 70%;
+}
+
+.form-feedback-error {
+	text-align: center;
+	color: #f05888;
+	font-weight: 600;
 }
 
 .box p {
